@@ -1,7 +1,7 @@
 {
   "name": "ludicrum-users",
   "version": "1.0.0",
-  "description": "ludicrum users micro service that implements user account and profile features ",
+  "description": "ludicrum users micro service that implements user account and profile features",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

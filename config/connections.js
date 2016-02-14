@@ -21,160 +21,160 @@
 
 module.exports.connections = {
 
-  /***************************************************************************
-  *                                                                          *
-  * Local disk storage for DEVELOPMENT ONLY                                  *
-  *                                                                          *
-  * Installed by default.                                                    *
-  *                                                                          *
-  ***************************************************************************/
-  localDiskDb: {
-    adapter: 'sails-disk'
-  },
+    /***************************************************************************
+     *                                                                          *
+     * Local disk storage for DEVELOPMENT ONLY                                  *
+     *                                                                          *
+     * Installed by default.                                                    *
+     *                                                                          *
+     ***************************************************************************/
+    localDiskDb: {
+        adapter: 'sails-disk'
+    },
 
-  development: {
-    adapter: "sails-orientdb",
-    host: process.env.DB_HOST || 'localhost',
-    port: process.env.DB_PORT || 2424,
-    user: process.env.DB_USER || 'dev',
-    password: process.env.DB_PASS || 'pass@word88',
-    database: 'ludicrum-dev',
-    // Additional options
-    options: {
+    development: {
+        adapter: "sails-orientdb",
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT || 2424,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_NAME || 'ludicrum',
+        // Additional options
+        options: {
 
-      // DB/Oriento Options
-      //
-      // database type: graph | document
-      databaseType: 'graph',
-      //
-      // storage type: memory | plocal
-      storage: 'plocal',
+            // DB/Oriento Options
+            //
+            // database type: graph | document
+            databaseType: 'graph',
+            //
+            // storage type: memory | plocal
+            storage: 'plocal',
 
-      // Useful in REST APIs
-      //
-      // If `id` is URI encoded, decode it with `decodeURIComponent()` (useful when `id` comes from an URL)
-      decodeURIComponent: true,
-      //
-      // Replaces circular references with `id` after populate operations (useful when results will be JSONfied)
-      removeCircularReferences: false,
+            // Useful in REST APIs
+            //
+            // If `id` is URI encoded, decode it with `decodeURIComponent()` (useful when `id` comes from an URL)
+            decodeURIComponent: true,
+            //
+            // Replaces circular references with `id` after populate operations (useful when results will be JSONfied)
+            removeCircularReferences: false,
 
-      // migrations
-      //
-      // Drop tables without deleting edges/vertexes hence not ensuring graph consistency
-      // Will speed up drop operations. Only works with migration: 'alter' or 'drop'
-      unsafeDrop: false,
+            // migrations
+            //
+            // Drop tables without deleting edges/vertexes hence not ensuring graph consistency
+            // Will speed up drop operations. Only works with migration: 'alter' or 'drop'
+            unsafeDrop: false,
 
-      // other
-      //
-      // Turn parameterized queries on
-      parameterized: true,
+            // other
+            //
+            // Turn parameterized queries on
+            parameterized: true,
 
-      //
-      // Waterline only allows populating 1 level below. fetchPlanLevel allows to
-      // to populate further levels below (experimental)
-      fetchPlanLevel: 1
+            //
+            // Waterline only allows populating 1 level below. fetchPlanLevel allows to
+            // to populate further levels below (experimental)
+            fetchPlanLevel: 1
+        }
+    },
+
+    test: {
+        adapter: "sails-orientdb",
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT || 2424,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_NAME || 'ludicrum',
+        // Additional options
+        options: {
+
+            // DB/Oriento Options
+            //
+            // database type: graph | document
+            databaseType: 'graph',
+            //
+            // storage type: memory | plocal
+            storage: 'plocal',
+
+            // Useful in REST APIs
+            //
+            // If `id` is URI encoded, decode it with `decodeURIComponent()` (useful when `id` comes from an URL)
+            decodeURIComponent: true,
+            //
+            // Replaces circular references with `id` after populate operations (useful when results will be JSONfied)
+            removeCircularReferences: false,
+
+            // migrations
+            //
+            // Drop tables without deleting edges/vertexes hence not ensuring graph consistency
+            // Will speed up drop operations. Only works with migration: 'alter' or 'drop'
+            unsafeDrop: false,
+
+            // other
+            //
+            // Turn parameterized queries on
+            parameterized: true,
+
+            //
+            // Waterline only allows populating 1 level below. fetchPlanLevel allows to
+            // to populate further levels below (experimental)
+            fetchPlanLevel: 1
+        }
+    },
+
+    /***************************************************************************
+     *                                                                          *
+     * MySQL is the world's most popular relational database.                   *
+     * http://en.wikipedia.org/wiki/MySQL                                       *
+     *                                                                          *
+     * Run: npm install sails-mysql                                             *
+     *                                                                          *
+     ***************************************************************************/
+    someMysqlServer: {
+        adapter: 'sails-mysql',
+        host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
+        user: 'YOUR_MYSQL_USER',
+        password: 'YOUR_MYSQL_PASSWORD',
+        database: 'YOUR_MYSQL_DB'
+    },
+
+    /***************************************************************************
+     *                                                                          *
+     * MongoDB is the leading NoSQL database.                                   *
+     * http://en.wikipedia.org/wiki/MongoDB                                     *
+     *                                                                          *
+     * Run: npm install sails-mongo                                             *
+     *                                                                          *
+     ***************************************************************************/
+    localMongoDbServer: {
+        adapter: 'sails-mongo',
+        host: 'localhost',
+        port: 27017,
+        // user: 'username',
+        // password: 'password',
+        database: 'ludicrum'
+    },
+
+    /***************************************************************************
+     *                                                                          *
+     * PostgreSQL is another officially supported relational database.          *
+     * http://en.wikipedia.org/wiki/PostgreSQL                                  *
+     *                                                                          *
+     * Run: npm install sails-postgresql                                        *
+     *                                                                          *
+     *                                                                          *
+     ***************************************************************************/
+    somePostgresqlServer: {
+        adapter: 'sails-postgresql',
+        host: 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
+        user: 'YOUR_POSTGRES_USER',
+        password: 'YOUR_POSTGRES_PASSWORD',
+        database: 'YOUR_POSTGRES_DB'
     }
-  },
-
-  test: {
-    adapter: "sails-orientdb",
-    host: process.env.DB_HOST || 'localhost',
-    port: process.env.DB_PORT || 2424,
-    user: process.env.DB_USER || 'dev',
-    password: process.env.DB_PASS || 'pass@word88',
-    database: 'ludicrumtests',
-    // Additional options
-    options: {
-
-      // DB/Oriento Options
-      //
-      // database type: graph | document
-      databaseType: 'graph',
-      //
-      // storage type: memory | plocal
-      storage: 'plocal',
-
-      // Useful in REST APIs
-      //
-      // If `id` is URI encoded, decode it with `decodeURIComponent()` (useful when `id` comes from an URL)
-      decodeURIComponent: true,
-      //
-      // Replaces circular references with `id` after populate operations (useful when results will be JSONfied)
-      removeCircularReferences: false,
-
-      // migrations
-      //
-      // Drop tables without deleting edges/vertexes hence not ensuring graph consistency
-      // Will speed up drop operations. Only works with migration: 'alter' or 'drop'
-      unsafeDrop: false,
-
-      // other
-      //
-      // Turn parameterized queries on
-      parameterized: true,
-
-      //
-      // Waterline only allows populating 1 level below. fetchPlanLevel allows to
-      // to populate further levels below (experimental)
-      fetchPlanLevel: 1
-    }
-  },
-
-  /***************************************************************************
-  *                                                                          *
-  * MySQL is the world's most popular relational database.                   *
-  * http://en.wikipedia.org/wiki/MySQL                                       *
-  *                                                                          *
-  * Run: npm install sails-mysql                                             *
-  *                                                                          *
-  ***************************************************************************/
-  someMysqlServer: {
-    adapter: 'sails-mysql',
-    host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_MYSQL_USER',
-    password: 'YOUR_MYSQL_PASSWORD',
-    database: 'YOUR_MYSQL_DB'
-  },
-
-  /***************************************************************************
-  *                                                                          *
-  * MongoDB is the leading NoSQL database.                                   *
-  * http://en.wikipedia.org/wiki/MongoDB                                     *
-  *                                                                          *
-  * Run: npm install sails-mongo                                             *
-  *                                                                          *
-  ***************************************************************************/
-  localMongoDbServer: {
-    adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
-    // user: 'username',
-    // password: 'password',
-    database: 'ludicrum'
-  },
-
-  /***************************************************************************
-  *                                                                          *
-  * PostgreSQL is another officially supported relational database.          *
-  * http://en.wikipedia.org/wiki/PostgreSQL                                  *
-  *                                                                          *
-  * Run: npm install sails-postgresql                                        *
-  *                                                                          *
-  *                                                                          *
-  ***************************************************************************/
-  somePostgresqlServer: {
-    adapter: 'sails-postgresql',
-    host: 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_POSTGRES_USER',
-    password: 'YOUR_POSTGRES_PASSWORD',
-    database: 'YOUR_POSTGRES_DB'
-  }
 
 
-  /***************************************************************************
-  *                                                                          *
-  * More adapters: https://github.com/balderdashy/sails                      *
-  *                                                                          *
-  ***************************************************************************/
+    /***************************************************************************
+     *                                                                          *
+     * More adapters: https://github.com/balderdashy/sails                      *
+     *                                                                          *
+     ***************************************************************************/
 
 };

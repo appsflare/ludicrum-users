@@ -44,65 +44,7 @@ module.exports.routes = {
    * for configuration options and examples.                                  *
    *                                                                          *
    ***************************************************************************/
-// Client authorization endPoints
 
-
-  'get /login': {
-    view: 'login'
-  },
-  'post /login': {
-    controller: 'Auth',
-    action: 'login'
-  },
-  'get /logout': {
-    controller: 'Auth',
-    action: 'logout'
-  },
-
-  // Resources endPoints
-
-  '/info': {
-    controller: 'InfoController',
-    action: 'index'
-  },
-
-  //Media querying endpoints
-
-  'get /media/byid/:mediaId': {
-    controller: 'MediaController',
-    action: 'getByMediaId'
-  },
-
-  // File Management Endpoints
-  'get /file/download/:filename': {
-    controller: 'FileController',
-    action: 'download'
-  },
-
-  'get /file/thumbstatus/:filename': {
-    controller: 'FileController',
-    action: 'isThumbnailReady'
-  },
-
-  'get /file/stream/media/:mediaId': {
-    controller: 'FileController',
-    action: 'streamMedia'
-  },
-
-  'get /file/stream/:filename': {
-    controller: 'FileController',
-    action: 'stream'
-  },
-  //emotion endpoints
-  'get /emotion/like/:contentId/:like': {
-    controller: 'EmotionController',
-    action: 'setLike'
-  },
-  //comments endpoints
-  'get /comment/for/:contentId/skip/:skip/take/:take': {
-    controller: 'CommentController',
-    action: 'getCommentsByContentId'
-  },
 
   //profiles endpoint
   'get /profile/list/byuser/:userId': {

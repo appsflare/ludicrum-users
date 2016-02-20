@@ -29,4 +29,4 @@ COPY [".", "./"]
 ##Set the entry point to node
 ENTRYPOINT ["node"]
 ##Set the arguments to be passed to the entrypoint
-CMD ["index.js"]
+CMD ["app.js"]

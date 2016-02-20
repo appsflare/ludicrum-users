@@ -1,10 +1,16 @@
 FROM node:4.3.0
 MAINTAINER Srinath Janakiraman <me@vjsrinath.com>
 
-ENV VERSION=1.0.0
+ENV VERSION=1.0.1
 
 ENV WORK_DIR=/srv/www/ludicrum-users
 ENV PORT=4000
+ENV REDIS_HOST=redis
+ENV REDIS_PORT=6379
+ENV DB_HOST=orientdb
+ENV DB_PORT=2424
+ENV DB_NAME=ludicrum
+
 ## ENV NODE_ENV
 
 ## Expose port 4000

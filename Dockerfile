@@ -10,6 +10,7 @@ ENV REDIS_PORT=6379
 ENV DB_HOST=orientdb
 ENV DB_PORT=2424
 ENV DB_NAME=ludicrum
+ENV AMQP_SERVICE_HOST=amqp://guest:guest@rabbitmq:5672
 
 ## ENV NODE_ENV
 
